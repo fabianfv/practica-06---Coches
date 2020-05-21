@@ -1,0 +1,425 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.div__grid_container {
+  position: absolute;
+  width: 1440px;
+  height: 1024px;
+
+  background: url(/img/background.jpg) no-repeat fixed center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+}
+
+/*
+aside (foto, nombre y frase usuario)
+*/
+
+.aside__usuario {
+  /*position: absolute;*/
+  width: 200px;
+  height: 1023px;
+  left: 0px;
+  top: 1px;
+}
+
+.aside__usuario > .figure__usuario {
+  position: relative;
+  width: 200px;
+  height: 264px;
+
+  left: calc(50% - 200px / 2);
+  top: calc(50% - 264px / 2 - 0.5px);
+
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0px 20px 20px 0px;
+}
+
+.aside__usuario > .figure__usuario > .img__usuario {
+  position: absolute;
+  width: 130px;
+  height: 144.08px;
+  left: calc(50% - 130px / 2 - 1px);
+  top: 13px;
+}
+
+.aside__usuario > .figure__usuario > figcaption > .p__nombre_usuario {
+  position: absolute;
+  width: 168px;
+  height: 46px;
+  left: calc(50% - 168px / 2 + 35px);
+  top: calc(50% - 46px / 2 + 51px);
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.aside__usuario .p__frase_usuario {
+  position: absolute;
+  width: 168px;
+  height: 46px;
+  left: calc(50% - 168px / 2 - 1px);
+  bottom: 13px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: flex-end;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+/*
+  main (foto y datos coche seleccionado)
+*/
+
+.coche {
+  position: absolute;
+  width: 1240px;
+  height: 1023px;
+  left: calc(50% - 1240px / 2 + 100px);
+  top: calc(50% - 1023px / 2 + 0.5px);
+}
+
+.main__coche {
+  width: 1240px;
+  height: 1023px;
+  left: calc(50% - 1240px / 2 + 100px);
+  top: calc(50% - 1023px / 2 + 0.5px);
+}
+
+.section__coche_seleccionado {
+  position: absolute;
+  width: 1090px;
+  height: 796px;
+  left: calc(50% - 1090px / 2);
+  top: calc(50% - 796px / 2 - 113.5px);
+
+  border-radius: 0px 0px 10px 10px;
+}
+
+.img__coche_seleccionado {
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: auto;
+  border-radius: 0px 0px 10px 10px;
+  opacity: 50%;
+}
+
+/*
+  Datos del coche
+*/
+
+.section__datos_coche {
+  position: absolute;
+  width: 1090px;
+  height: 111px;
+  left: calc(50% - 1090px / 2);
+  top: calc(50% - 111px / 2 + 110px);
+
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0px 0px 10px 10px;
+}
+
+.section__marca {
+  position: absolute;
+  width: 244px;
+  height: 111px;
+  left: calc(50% - 244px / 2 - 364px);
+  top: calc(50% - 111px / 2);
+}
+
+.etiqueta_marca {
+  position: absolute;
+  width: 290px;
+  height: 29px;
+
+  left: calc(50% - 290px / 2);
+  top: calc(50% - 29px / 2 - 41px);
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.p__marca {
+  position: absolute;
+  width: 290px;
+  height: 83px;
+
+  left: calc(50% - 290px / 2);
+  top: calc(50% - 83px / 2 + 14px);
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 52px;
+  line-height: 61px;
+
+  display: flex;
+  align-items: center;
+
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.section__modelo. {
+  position: absolute;
+  width: 281px;
+  height: 111px;
+  left: calc(50% - 281px / 2 - 42.5px);
+  top: calc(50% - 111px / 2);
+}
+
+.etiqueta_modelo {
+  position: absolute;
+  width: 290px;
+  height: 29px;
+  left: calc(50% - 290px / 2 + 0.5px);
+  top: calc(50% - 29px / 2 - 41px);
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: flex-end;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.p__modelo {
+  position: absolute;
+  width: 290px;
+  height: 81px;
+  left: calc(50% - 290px / 2 + 0.5px);
+  top: calc(50% - 81px / 2 + 15px);
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 37px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.section__antiguedad {
+  position: absolute;
+  width: 101px;
+  height: 111px;
+  left: calc(50% - 101px / 2 + 207.5px);
+  top: calc(50% - 111px / 2);
+}
+
+.etiqueta_antiguedad {
+  position: absolute;
+  width: 187px;
+  height: 29px;
+  left: calc(50% - 187px / 2 - 1px);
+  top: calc(50% - 29px / 2 - 41px);
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: flex-end;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.p__antiguedad {
+  position: absolute;
+  width: 189px;
+  height: 81px;
+  left: calc(50% - 189px / 2 - 1px);
+  top: calc(50% - 81px / 2 + 15px);
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 37px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.section__color {
+  position: absolute;
+  width: 53px;
+  height: 111px;
+  left: calc(50% - 53px / 2 + 343.5px);
+  top: calc(50% - 111px / 2);
+}
+
+.etiqueta_color {
+  position: absolute;
+  width: 87px;
+  height: 29px;
+  left: calc(50% - 87px / 2);
+  top: calc(50% - 29px / 2 - 41px);
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: flex-end;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.p__color {
+  position: absolute;
+  width: 87px;
+  height: 81px;
+  left: calc(50% - 87px / 2);
+  top: calc(50% - 81px / 2 + 15px);
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #ffffff;
+}
+.section__puertas {
+  position: absolute;
+  width: 58px;
+  height: 110px;
+  left: calc(50% - 58px / 2 + 458px);
+  top: calc(50% - 110px / 2 + 0.5px);
+}
+
+.etiqueta_puertas {
+  position: absolute;
+  width: 87px;
+  height: 29px;
+  left: calc(50% - 87px / 2 - 0.5px);
+  top: calc(50% - 29px / 2 - 40.5px);
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: flex-end;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.p__puertas {
+  position: absolute;
+  width: 87px;
+  height: 82px;
+  left: calc(50% - 87px / 2 - 0.5px);
+  top: 29px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+/*
+ *****************
+*/
+
+.footer__selector_coches {
+  position: absolute;
+  width: 1090px;
+  height: 188px;
+  left: calc(50% - 1090px / 2);
+  top: calc(50% - 188px / 2 + 300px); /* + 417.5px);*/
+  border-radius: 0px;
+}
+
+.footer__selector_coches figure {
+}
+
+.footer__selector_coches .img__miniatura_coche01 {
+  position: absolute;
+  width: 314px;
+  height: 188px;
+  left: 0px;
+  top: 0px;
+
+  border-radius: 10px 10px 0px 0px;
+}
+
+.footer__selector_coches .img__miniatura_coche02 {
+  position: absolute;
+  width: 315px;
+  height: 188px;
+  left: 387px;
+  top: 0px;
+
+  border-radius: 10px 10px 0px 0px;
+}
+
+.footer__selector_coches .img__miniatura_coche03 {
+  position: absolute;
+  width: 314px;
+  height: 188px;
+  left: 776px;
+  top: 0px;
+
+  border-radius: 10px 10px 0px 0px;
+}
