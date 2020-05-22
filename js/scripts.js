@@ -13,13 +13,13 @@ Coche.prototype.toString = function toString() {
   return str
 }
 
-let ultimo_coche = new Coche(0, "Último", null, null, null, null, null)
-let penultimo_coche = new Coche(1, "Penúltimo", null, null, null, null, null)
-let antepenultimo_coche = new Coche(2, "Antepenúltimo", null, null, null, null, null)
+let ultimo_coche = new Coche()
+let penultimo_coche = new Coche()
+let antepenultimo_coche = new Coche()
 
 const usuario = {
   nombre: null,
-  coches: [ultimo_coche, penultimo_coche, antepenultimo_coche],
+  coches: [ultimo_coche, penultimo_coche, antepenultimo_coche]
 }
 
 let coche_seleccionado = 0
