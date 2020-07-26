@@ -117,32 +117,17 @@ function init() {
   puertas = document.getElementById("puertas")
   img_coche_seleccionado = document.getElementById("img_coche_seleccionado")
 
-  document.getElementById("coche01").addEventListener("click", click_coche01)
-  document.getElementById("coche02").addEventListener("click", click_coche02)
-  document.getElementById("coche03").addEventListener("click", click_coche03)
+  document.getElementById("coche01").addEventListener("click", click)
+  document.getElementById("coche02").addEventListener("click", click)
+  document.getElementById("coche03").addEventListener("click", click)
 
   test()
 }
 
-function click_coche01(event) {
-  indice_coche_seleccionado = 0
-  img_coche_seleccionado.src = "/img/coche01.jpg"
+function click(event) {
+  indice_coche_seleccionado = this.id[6] - 1
+  img_coche_seleccionado.src = `/img/coche0${indice_coche_seleccionado + 1}.jpg`
   escribir_datos_DOM()
-  event.preventDefault
-}
-
-function click_coche02(event) {
-  indice_coche_seleccionado = 1
-  img_coche_seleccionado.src = "/img/coche02.jpg"
-  escribir_datos_DOM()
-  event.preventDefault
-}
-
-function click_coche03(event) {
-  indice_coche_seleccionado = 2
-  img_coche_seleccionado.src = "/img/coche03.jpg"
-  escribir_datos_DOM()
-  event.preventDefault
 }
 
 function escribir_datos_DOM() {
