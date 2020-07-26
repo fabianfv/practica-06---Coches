@@ -1,108 +1,93 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <!-- Metadatos Web -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <!-- HTML Meta Tags -->
-    <title>Coches</title>
-    <meta name="description" content="" />
+<head>
+  <!-- Metadatos Web -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <!-- Google / Search Engine Tags -->
-    <meta itemprop="name" content="" />
-    <meta itemprop="description" content="" />
-    <meta itemprop="image" content="http://" />
+  <!-- HTML Meta Tags -->
+  <title>Mis últimos tres coches</title>
+  <meta name="description" content="" />
 
-    <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="http://" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:image" content="http://" />
+  <!-- Google / Search Engine Tags -->
+  <meta itemprop="name" content="" />
+  <meta itemprop="description" content="" />
+  <meta itemprop="image" content="http://" />
 
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="SEAT" />
-    <meta name="twitter:description" content="" />
-    <meta name="twitter:image" content="http://" />
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="http://" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="" />
+  <meta property="og:description" content="" />
+  <meta property="og:image" content="http://" />
 
-    <!-- FontAwesome -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-      crossorigin="anonymous"
-    />
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SEAT" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="http://" />
 
-    <!-- Nuestro Framework de CSS preferido, mi preferido es BULMA -->
-    <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css" />
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/estilos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+</head>
 
-    <!-- Nuestro CSS Compilado a través de SASS ó sin compilar solo CSS básico -->
-    <link rel="stylesheet" href="css/estilos.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <div class="div__grid_container">
-      <aside class="aside__usuario">
-        <figure class="figure__usuario">
-          <img class="img__usuario" src="img/person03.png" alt="foto del usuario" />
-          <figcaption>
-            <p id="nombre_usuario" class="p__nombre_usuario">Nombre</p>
-            <p class="p__frase_usuario">Los coches que me han acompañado</p>
-          </figcaption>
-        </figure>
-      </aside>
-      <div class="coche">
-        <main class="main__coche">
-          <section class="section__coche_seleccionado">
-            <figure>
-              <img
-                class="img__coche_seleccionado"
-                alt="foto seleccionada de uno de los coches del usuario"
-                src="img/coche01.jpg"
-              />
-            </figure>
+<body>
+  <div class="main-container">
+    <aside class="aside__usuario">
+      <figure class="figure__usuario">
+        <img class="img__usuario" src="img/person03.png" alt="foto del usuario" />
+        <figcaption>
+          <p id="nombre_usuario" class="p__nombre_usuario">Nombre</p>
+          <p class="p__frase_usuario">Los coches que me han acompañado</p>
+        </figcaption>
+      </figure>
+    </aside>
+    <div class="div__content">
+      <main class="main__coche">
+        <section class="section__coche_seleccionado">
+          <figure>
+            <img id="img_coche_seleccionado" class="img__coche_seleccionado" alt="foto seleccionada de uno de los coches del usuario"
+              src="img/coche01.jpg" />
+          </figure>
+        </section>
+
+        <section class="section__datos_coche">
+          <section class="section__marca">
+            <p class="etiqueta">Marca</p>
+            <p id="marca" class="p__marca">-</p>
           </section>
-
-          <section class="section__datos_coche">
-            <section class="section__marca">
-              <p class="etiqueta_marca">Marca</p>
-              <p id="marca" class="p__marca">Renault</p>
-            </section>
-            <section class="section__modelo">
-              <p class="etiqueta_modelo">Modelo</p>
-              <p id="modelo" class="p__modelo">Laguna</p>
-            </section>
-            <section class="section__antiguedad">
-              <p class="etiqueta_antiguedad">Antigüedad</p>
-              <p id="antiguedad" class="p__antiguedad">25</p>
-            </section>
-            <section class="section__color">
-              <p class="etiqueta_color">Color</p>
-              <p id="color" class="p__color">Rojo</p>
-            </section>
-            <section class="section__puertas">
-              <p class="etiqueta_puertas">Puertas</p>
-              <p id="puertas" class="p__puertas">4</p>
-            </section>
+          <section class="section__modelo">
+            <p class="etiqueta">Modelo</p>
+            <p id="modelo" class="p__modelo">-</p>
           </section>
-        </main>
+          <section class="section__antiguedad">
+            <p class="etiqueta">Antigüedad</p>
+            <p id="antiguedad" class="p__antiguedad">-</p>
+          </section>
+          <section class="section__color">
+            <p class="etiqueta">Color</p>
+            <p id="color" class="p__color">-</p>
+          </section>
+          <section class="section__puertas">
+            <p class="etiqueta">Puertas</p>
+            <p id="puertas" class="p__puertas">-</p>
+          </section>
+        </section>
+      </main>
 
-        <footer class="footer__selector_coches">
-          <figure>
-            <img class="img__miniatura_coche01" alt="foto del último coche del usuario" src="img/coche01.jpg" />
-          </figure>
-          <figure>
-            <img class="img__miniatura_coche02" alt="foto del penúltimo coche del usuario" src="img/coche02.jpg" />
-          </figure>
-          <figure>
-            <img class="img__miniatura_coche03" alt="foto del antepenúltimo coche del usuario" src="img/coche03.jpg" />
-          </figure>
-        </footer>
-      </div>
+      <footer class="footer__selector_coches">
+        <img id="coche01" class="img__miniatura_coche" alt="foto del último coche del usuario" src="img/coche01.jpg" />
+        <img id="coche02" class="img__miniatura_coche" alt="foto del penúltimo coche del usuario" src="img/coche02.jpg" />
+        <img id="coche03" class="img__miniatura_coche" alt="foto del antepenúltimo coche del usuario" src="img/coche03.jpg" />
+      </footer>
     </div>
-    <script src="js/scripts.js" defer />
-  </body>
+  </div>
+
+  <script src="js/scripts.js" async defer />
+
+</body>
+
 </html>

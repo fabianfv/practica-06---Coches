@@ -1,5 +1,15 @@
 const CANCELAR = null
 
+let nombre_usuario = null
+let marca = null
+let modelo = null
+let antiguedad = null
+let color = null
+let puertas = null
+let img_coche_seleccionado = null
+
+window.onload = init
+
 function Coche(marca, modelo, antiguedad, color, puertas) {
   this.marca = marca
   this.modelo = modelo
@@ -19,10 +29,10 @@ let antepenultimo_coche = new Coche()
 
 const usuario = {
   nombre: null,
-  coches: [ultimo_coche, penultimo_coche, antepenultimo_coche]
+  coches: [ultimo_coche, penultimo_coche, antepenultimo_coche],
 }
 
-let coche_seleccionado = 0
+let indice_coche_seleccionado = 0
 
 function validar_coche(entrada) {
   //El usuario debe proporcionar todas las propiedades requeridas de un coche
@@ -54,6 +64,7 @@ function obtener_datos_coche(coche, ordinal) {
 
   if (!datos_coche) return CANCELAR
 
+  //refactorizar para usar desestructuración
   coche.marca = datos_coche[0]
   coche.modelo = datos_coche[1]
   coche.antiguedad = datos_coche[2]
@@ -93,23 +104,55 @@ function obtener_datos() {
   if (!obtener_datos_coche(ultimo_coche, "último")) return CANCELAR
   if (!obtener_datos_coche(penultimo_coche, "penúltimo")) return CANCELAR
   if (!obtener_datos_coche(antepenultimo_coche, "antepenúltimo")) return CANCELAR
+
   return true
 }
 
-function escribir_datos_DOM() {
-  let nombre_usuario = document.getElementById("nombre_usuario")
-  let marca = document.getElementById("marca")
-  let modelo = document.getElementById("modelo")
-  let antiguedad = document.getElementById("antiguedad")
-  let color = document.getElementById("color")
-  let puertas = document.getElementById("puertas")
+function init() {
+  nombre_usuario = document.getElementById("nombre_usuario")
+  marca = document.getElementById("marca")
+  modelo = document.getElementById("modelo")
+  antiguedad = document.getElementById("antiguedad")
+  color = document.getElementById("color")
+  puertas = document.getElementById("puertas")
+  img_coche_seleccionado = document.getElementById("img_coche_seleccionado")
 
+  document.getElementById("coche01").addEventListener("click", click_coche01)
+  document.getElementById("coche02").addEventListener("click", click_coche02)
+  document.getElementById("coche03").addEventListener("click", click_coche03)
+
+  test()
+}
+
+function click_coche01(event) {
+  indice_coche_seleccionado = 0
+  img_coche_seleccionado.src = "/img/coche01.jpg"
+  escribir_datos_DOM()
+  event.preventDefault
+}
+
+function click_coche02(event) {
+  indice_coche_seleccionado = 1
+  img_coche_seleccionado.src = "/img/coche02.jpg"
+  escribir_datos_DOM()
+  event.preventDefault
+}
+
+function click_coche03(event) {
+  indice_coche_seleccionado = 2
+  img_coche_seleccionado.src = "/img/coche03.jpg"
+  escribir_datos_DOM()
+  event.preventDefault
+}
+
+function escribir_datos_DOM() {
+  //refactorizar para usar desestructuración:
   nombre_usuario.textContent = usuario.nombre
-  marca.textContent = usuario.coches[coche_seleccionado].marca
-  modelo.textContent = usuario.coches[coche_seleccionado].modelo
-  antiguedad.textContent = usuario.coches[coche_seleccionado].antiguedad
-  color.textContent = usuario.coches[coche_seleccionado].color
-  puertas.textContent = usuario.coches[coche_seleccionado].puertas
+  marca.textContent = usuario.coches[indice_coche_seleccionado].marca
+  modelo.textContent = usuario.coches[indice_coche_seleccionado].modelo
+  antiguedad.textContent = usuario.coches[indice_coche_seleccionado].antiguedad
+  color.textContent = usuario.coches[indice_coche_seleccionado].color
+  puertas.textContent = usuario.coches[indice_coche_seleccionado].puertas
 }
 
 function test() {
@@ -117,27 +160,38 @@ function test() {
     console.log("El usuario pulsó el botón Cancelar o no proporcionó los datos solicitados.")
   } else {
     console.log("Nombre: ", usuario.nombre)
-    console.log("Datos último coche:\n", usuario.coches[0].toString())
-    console.log("Datos penúltimo coche:\n", usuario.coches[1].toString())
-    console.log("Datos antepenúltimo coche:\n", usuario.coches[2].toString())
+    console.log("Datos último coche\n", usuario.coches[0].toString())
+    console.log("Datos penúltimo coche\n", usuario.coches[1].toString())
+    console.log("Datos antepenúltimo coche\n", usuario.coches[2].toString())
 
     escribir_datos_DOM()
 
     console.log("Coche seleccionado")
-    console.log("Marca: ", usuario.coches[coche_seleccionado].marca)
-    console.log("Modelo: ", usuario.coches[coche_seleccionado].modelo)
-    console.log("Antiguedad:", usuario.coches[coche_seleccionado].antiguedad)
-    console.log("Color: ", usuario.coches[coche_seleccionado].color)
-    console.log("Puertas: ", usuario.coches[coche_seleccionado].puertas)
+    console.log("Marca: ", usuario.coches[indice_coche_seleccionado].marca)
+    console.log("Modelo: ", usuario.coches[indice_coche_seleccionado].modelo)
+    console.log("Antiguedad:", usuario.coches[indice_coche_seleccionado].antiguedad)
+    console.log("Color: ", usuario.coches[indice_coche_seleccionado].color)
+    console.log("Puertas: ", usuario.coches[indice_coche_seleccionado].puertas)
   }
 }
-
-test()
 
 /*
 
 Fiat   ,  Duna   , 15  ,   azul  , 4  
 Ford  ,   Falcon    , 20   , blanco    , 4
 Renault   , Laguna  , 25  ,  rojo  , 4     
+
+*/
+
+/*
+
+TODO
+
+Hecho - Reescribir estilos.css para usar código CSS adecuado
+
+Hecho - Añadir la funcionalidad necesaria para que el usuario pueda
+  seleccionar una miniatura y se muestren los datos correspondientes.
+
+- Refactorizar para usar desestructuración de arreglos y objetos, cuando sea posible.
 
 */
