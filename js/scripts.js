@@ -126,7 +126,9 @@ function init() {
 
 function click(event) {
   indice_coche_seleccionado = this.id[6] - 1
-  img_coche_seleccionado.src = `/img/coche0${indice_coche_seleccionado + 1}.jpg`
+  console.log("src original: ", img_coche_seleccionado.src)
+  img_coche_seleccionado.src = `img/coche0${indice_coche_seleccionado + 1}.jpg`
+  console.log("src cambiada a: ", img_coche_seleccionado.src)
   escribir_datos_DOM()
 }
 
@@ -144,6 +146,7 @@ function test() {
   if (!obtener_datos()) {
     console.log("El usuario pulsó el botón Cancelar o no proporcionó los datos solicitados.")
   } else {
+
     console.log("Nombre: ", usuario.nombre)
     console.log("Datos último coche\n", usuario.coches[0].toString())
     console.log("Datos penúltimo coche\n", usuario.coches[1].toString())
