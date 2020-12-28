@@ -1,185 +1,185 @@
-const CANCELAR = null
+const CANCEL = null
 
 let username = null
-let marca = "-"
-let modelo = "-"
-let antiguedad = "-"
+let make = "-"
+let model = "-"
+let age = "-"
 let color = "-"
-let puertas = "-"
-let img_coche_seleccionado = null
+let doors = "-"
+let selectedCarImage = null
 
 window.onload = init
 
-function Coche(marca, modelo, antiguedad, color, puertas) {
-  this.marca = marca
-  this.modelo = modelo
-  this.antiguedad = antiguedad
+function Car(make, model, age, color, doors) {
+  this.make = make
+  this.model = model
+  this.age = age
   this.color = color
-  this.puertas = puertas
+  this.doors = doors
 }
 
-Coche.prototype.toString = function toString() {
-  let str = `Marca: ${this.marca}\nModelo: ${this.modelo}\nAntigüedad: ${this.antiguedad}\nColor: ${this.color}\nPuertas: ${this.puertas}`
+Car.prototype.toString = function toString() {
+  let str = `Make: ${this.make}\nModel: ${this.model}\nAge: ${this.age}\nColor: ${this.color}\nDoors: ${this.doors}`
   return str
 }
 
-let ultimo_coche = new Coche()
-let penultimo_coche = new Coche()
-let antepenultimo_coche = new Coche()
+let last_car = new Car()
+let penultimate_car = new Car()
+let antepenultimate_car = new Car()
 
-const usuario = {
-  nombre: null,
-  coches: [ultimo_coche, penultimo_coche, antepenultimo_coche],
+const user = {
+  name: null,
+  cars: [last_car, penultimate_car, antepenultimate_car],
 }
 
-let indice_coche_seleccionado = 0
+let selectedCarIndex = 0
 
-function validar_coche(entrada) {
-  //El usuario debe proporcionar todas las propiedades requeridas de un coche
-  return entrada.length === Object.keys(ultimo_coche).length
+function validateCarData(input) {
+  //User must provide all required properties of a car
+  return input.length === Object.keys(last_car).length
 }
 
-function entrada_datos_coche(mensaje) {
-  //usuario pulsó cancelar => entrada = null/CANCELAR
-  //usuario ingresó datos inválidos => entrada = false (devuelto por validar_coche)
-  //usuario ingresó datos validos => entrada = true (devuelto por validar_coche)
-  let entrada = false
+function sanitizeData(input) {
+  return input.split(",").map((data) => data.trim())
+}
+
+function getCarInputData(message) {
+  //if user clicked cancel => input = CANCELAR (null)
+  //if user entered invalid data => input = false (returned by validateCarData)
+  //if user entered valid data => input = true (returned by validateCarData)
+  let input = false
   do {
-    entrada = prompt(mensaje)
-    if (entrada === CANCELAR) return CANCELAR
-    entrada = entrada.split(",").map((dato) => dato.trim())
-    if (validar_coche(entrada)) return entrada
+    input = prompt(message)
+    if (input === CANCEL) return CANCEL
+    input = sanitizeData(input)
+    if (validateCarData(input)) return input
   } while (true)
 }
 
-function obtener_datos_coche(coche, ordinal) {
-  const mensaje = `${usuario.nombre} ingresa separando por comas:
+function getCarData(car, ordinal) {
+  const message = `${user.name} enter (separated by commas):
     
-  * MARCA, MODELO, ANTIGÜEDAD, COLOR y CANTIDAD DE PUERTAS
+  * MAKE, MODEL, AGE, COLOR and DOORS
       
-  de tu ${ordinal} coche.
+  of your ${ordinal} car.
     
   `
-  const datos_coche = entrada_datos_coche(mensaje)
+  const car_data = getCarInputData(message)
 
-  if (!datos_coche) return CANCELAR
+  if (!car_data) return CANCEL
 
-  //refactorizar para usar desestructuración
-  coche.marca = datos_coche[0]
-  coche.modelo = datos_coche[1]
-  coche.antiguedad = datos_coche[2]
-  coche.color = datos_coche[3]
-  coche.puertas = datos_coche[4]
+  //refactor to use destructuring if possible
+  car.make = car_data[0]
+  car.model = car_data[1]
+  car.age = car_data[2]
+  car.color = car_data[3]
+  car.doors = car_data[4]
 
   return true
 }
 
-function validar_nombre(entrada) {
-  //caracteres válidos letras de la 'a' a la 'z' ya sean
-  //mayúsculas o minúsculas más letras acentuadas.
-  return /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/.test(entrada)
+function validateUserName(input) {
+  /*
+  Valid characters are:
+    - letters from 'a' to 'z'
+    - either uppercase or lowercase and
+    - accented letters
+  */
+  return /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/.test(input)
 }
 
-function entrada_nombre(mensaje) {
-  let entrada = false
+function getUserInputData(message) {
+  let input = false
   do {
-    entrada = prompt(mensaje)
-    if (entrada === CANCELAR) return CANCELAR
-    if (validar_nombre(entrada)) return entrada
+    input = prompt(message)
+    if (input === CANCEL) return CANCEL
+    if (validateUserName(input)) return input
   } while (true)
 }
 
-function obtener_nombre() {
-  const entrada = entrada_nombre("Ingresa tu nombre")
-  if (!entrada) return CANCELAR
-  usuario.nombre = entrada
+function getUserName() {
+  const input = getUserInputData("Enter your name")
+  if (!input) return CANCEL
+  user.name = input
   return true
 }
 
-function obtener_datos() {
-  // Se asume que todos los datos son obligatorios, si el usuario
-  // no los proporciona el programa termina
-  if (!obtener_nombre()) return CANCELAR
+function getDataFromUser() {
+  /*
+    All data is assumed to be mandatory.
+    If the user doesn't provide the data the program ends.
+  */
+  if (!getUserName()) return CANCEL
 
-  if (!obtener_datos_coche(ultimo_coche, "último")) return CANCELAR
-  if (!obtener_datos_coche(penultimo_coche, "penúltimo")) return CANCELAR
-  if (!obtener_datos_coche(antepenultimo_coche, "antepenúltimo")) return CANCELAR
+  if (!getCarData(last_car, "last")) return CANCEL
+  if (!getCarData(penultimate_car, "penultimate")) return CANCEL
+  if (!getCarData(antepenultimate_car, "antepenultimate")) return CANCEL
 
   return true
 }
 
 function init() {
   username = document.getElementById("username")
-  marca = document.getElementById("marca")
-  modelo = document.getElementById("modelo")
-  antiguedad = document.getElementById("antiguedad")
+  make = document.getElementById("make")
+  model = document.getElementById("model")
+  age = document.getElementById("age")
   color = document.getElementById("color")
-  puertas = document.getElementById("puertas")
-  img_coche_seleccionado = document.getElementById("img_coche_seleccionado")
+  doors = document.getElementById("doors")
+  selectedCarImage = document.getElementById("selectedCarImage")
 
-  document.getElementById("coche01").addEventListener("click", click)
-  document.getElementById("coche02").addEventListener("click", click)
-  document.getElementById("coche03").addEventListener("click", click)
+  document.getElementById("car01").addEventListener("click", click)
+  document.getElementById("car02").addEventListener("click", click)
+  document.getElementById("car03").addEventListener("click", click)
 
   test()
 }
 
-function click(event) {
-  indice_coche_seleccionado = this.id[6] - 1
-  console.log("src original: ", img_coche_seleccionado.src)
-  img_coche_seleccionado.src = `img/coche0${indice_coche_seleccionado + 1}.jpg`
-  console.log("src cambiada a: ", img_coche_seleccionado.src)
-  escribir_datos_DOM()
+function click() {
+  //I get the last character from img.car0X
+  //this === event.currentTarget
+  const lastChar = this.id[this.id.length - 1]
+  selectedCarImage.src = `img/car0${lastChar}.jpg`
+
+  selectedCarIndex = Number(lastChar) - 1
+  console.log("selected car index: ", selectedCarIndex)
+
+
+  writeDataToDOM()
 }
 
-function escribir_datos_DOM() {
-  //refactorizar para usar desestructuración:
-  username.textContent = usuario.nombre
-  marca.textContent = usuario.coches[indice_coche_seleccionado].marca
-  modelo.textContent = usuario.coches[indice_coche_seleccionado].modelo
-  antiguedad.textContent = usuario.coches[indice_coche_seleccionado].antiguedad
-  color.textContent = usuario.coches[indice_coche_seleccionado].color
-  puertas.textContent = usuario.coches[indice_coche_seleccionado].puertas
+function writeDataToDOM() {
+  //refactor to use destructuring if possible:
+  username.textContent = user.name
+  make.textContent = user.cars[selectedCarIndex].make
+  model.textContent = user.cars[selectedCarIndex].model
+  age.textContent = user.cars[selectedCarIndex].age
+  color.textContent = user.cars[selectedCarIndex].color
+  doors.textContent = user.cars[selectedCarIndex].doors
 }
 
 function test() {
-  if (!obtener_datos()) {
-    console.log("El usuario pulsó el botón Cancelar o no proporcionó los datos solicitados.")
+  if (!getDataFromUser()) {
+    console.log("The user clicked the Cancel button or she didn't provide the requested data.")
   } else {
 
-    console.log("Nombre: ", usuario.nombre)
-    console.log("Datos último coche\n", usuario.coches[0].toString())
-    console.log("Datos penúltimo coche\n", usuario.coches[1].toString())
-    console.log("Datos antepenúltimo coche\n", usuario.coches[2].toString())
+    console.log("User name: ", user.name)
+    console.log("Last car data\n", user.cars[0].toString())
+    console.log("Penultimate car data\n", user.cars[1].toString())
+    console.log("Antepenultimate car data\n", user.cars[2].toString())
 
-    escribir_datos_DOM()
+    writeDataToDOM()
 
-    console.log("Coche seleccionado")
-    console.log("Marca: ", usuario.coches[indice_coche_seleccionado].marca)
-    console.log("Modelo: ", usuario.coches[indice_coche_seleccionado].modelo)
-    console.log("Antiguedad:", usuario.coches[indice_coche_seleccionado].antiguedad)
-    console.log("Color: ", usuario.coches[indice_coche_seleccionado].color)
-    console.log("Puertas: ", usuario.coches[indice_coche_seleccionado].puertas)
+    console.log("Selected Car")
+    console.log("Make: ", user.cars[selectedCarIndex].make)
+    console.log("Model: ", user.cars[selectedCarIndex].model)
+    console.log("Age:", user.cars[selectedCarIndex].age)
+    console.log("Color: ", user.cars[selectedCarIndex].color)
+    console.log("Doors: ", user.cars[selectedCarIndex].doors)
   }
 }
 
 /*
-
-Fiat   ,  Duna   , 15  ,   azul  , 4  
-Ford  ,   Falcon    , 20   , blanco    , 4
-Renault   , Laguna  , 25  ,  rojo  , 4     
-
-*/
-
-/*
-
-TODO
-
-Hecho - Reescribir estilos.css para usar código CSS adecuado
-
-Hecho - Añadir la funcionalidad necesaria para que el usuario pueda
-  seleccionar una miniatura y se muestren los datos correspondientes.
-
-- Refactorizar para usar desestructuración de arreglos y objetos, cuando sea posible.
-
+Lamborghini   ,  Aventador   , 15  ,   blue  , 4  
+Porsche  ,   Cayman GT4    , 20   , white    , 4
+Maseratti   , MC20  , 25  ,  red  , 4     
 */
