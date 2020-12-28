@@ -1,95 +1,65 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<head>
-  <!-- Metadatos Web -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>My last three cars</title>
 
-  <!-- HTML Meta Tags -->
-  <title>Mis últimos tres coches</title>
-  <meta name="description" content="" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  </head>
 
-  <!-- Google / Search Engine Tags -->
-  <meta itemprop="name" content="" />
-  <meta itemprop="description" content="" />
-  <meta itemprop="image" content="http://" />
+  <body>
+    <div class="main-container">
 
-  <!-- Facebook Meta Tags -->
-  <meta property="og:url" content="http://" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="" />
-  <meta property="og:description" content="" />
-  <meta property="og:image" content="http://" />
-
-  <!-- Twitter Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="SEAT" />
-  <meta name="twitter:description" content="" />
-  <meta name="twitter:image" content="http://" />
-
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-</head>
-
-<body>
-  <div class="main-container">
-    <aside class="aside__usuario">
-      <figure class="figure__usuario">
-        <img class="img__usuario" src="img/person03.png" alt="foto del usuario" />
+      <figure class="user-data">
+        <img class="user-data__image" src="img/person03.png" alt="user photo" />
         <figcaption>
-          <p id="nombre_usuario" class="p__nombre_usuario">Nombre</p>
-          <p class="p__frase_usuario">Los coches que me han acompañado</p>
+          <p id="username" class="user-data__name">Name</p>
+          <p class="user-data__message">My last three cars</p>
         </figcaption>
       </figure>
-    </aside>
-    <div class="div__content">
-      <main class="main__coche">
-        <section class="section__coche_seleccionado">
-          <figure>
-            <img id="img_coche_seleccionado" class="img__coche_seleccionado"
-              alt="foto seleccionada de uno de los coches del usuario" src="img/coche01.jpg" />
-          </figure>
+
+      <section class="car">
+
+        <section class="selected-car">
+          <img id="img_coche_seleccionado" class="selected-car__image" alt="user car photo" src="img/coche01.jpg" />
         </section>
 
-        <section class="section__datos_coche">
-          <section class="section__marca">
-            <p class="etiqueta">Marca</p>
-            <p id="marca" class="p__marca">-</p>
+        <section class="car-info">
+          <section class="car-data">
+            <p class="car-data__tag">Make</p>
+            <p id="marca" class="car-data__value">-</p>
           </section>
-          <section class="section__modelo">
-            <p class="etiqueta">Modelo</p>
-            <p id="modelo" class="p__modelo">-</p>
+          <section class="car-data">
+            <p class="car-data__tag">Model</p>
+            <p id="modelo" class="car-data__value">-</p>
           </section>
-          <section class="section__antiguedad">
-            <p class="etiqueta">Antigüedad</p>
-            <p id="antiguedad" class="p__antiguedad">-</p>
+          <section class="car-data">
+            <p class="car-data__tag">Age</p>
+            <p id="antiguedad" class="car-data__value">-</p>
           </section>
-          <section class="section__color">
-            <p class="etiqueta">Color</p>
-            <p id="color" class="p__color">-</p>
+          <section class="car-data">
+            <p class="car-data__tag">Color</p>
+            <p id="color" class="car-data__value">-</p>
           </section>
-          <section class="section__puertas">
-            <p class="etiqueta">Puertas</p>
-            <p id="puertas" class="p__puertas">-</p>
+          <section class="car-data">
+            <p class="car-data__tag">Doors</p>
+            <p id="puertas" class="car-data__value">-</p>
           </section>
         </section>
-      </main>
 
-      <footer class="footer__selector_coches">
-        <img id="coche01" class="img__miniatura_coche" alt="foto del último coche del usuario" src="img/coche01.jpg" />
-        <img id="coche02" class="img__miniatura_coche" alt="foto del penúltimo coche del usuario"
-          src="img/coche02.jpg" />
-        <img id="coche03" class="img__miniatura_coche" alt="foto del antepenúltimo coche del usuario"
-          src="img/coche03.jpg" />
-      </footer>
+        <section class="car-selector">
+          <img id="coche01" class="car-selector__thumbnail" alt="last user car photo" src="img/coche01.jpg" />
+          <img id="coche02" class="car-selector__thumbnail" alt="penultime user car photo" src="img/coche02.jpg" />
+          <img id="coche03" class="car-selector__thumbnail" alt="antepenultime user car photo" src="img/coche03.jpg" />
+        </section>
+      </section>
     </div>
-  </div>
-  
-  <script src="js/scripts.js"></script>
 
-</body>
-
+    <script src="js/scripts.js"></script>
+  </body>
 </html>

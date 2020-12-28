@@ -1,11 +1,11 @@
 const CANCELAR = null
 
-let nombre_usuario = null
-let marca = null
-let modelo = null
-let antiguedad = null
-let color = null
-let puertas = null
+let username = null
+let marca = "-"
+let modelo = "-"
+let antiguedad = "-"
+let color = "-"
+let puertas = "-"
 let img_coche_seleccionado = null
 
 window.onload = init
@@ -109,7 +109,7 @@ function obtener_datos() {
 }
 
 function init() {
-  nombre_usuario = document.getElementById("nombre_usuario")
+  username = document.getElementById("username")
   marca = document.getElementById("marca")
   modelo = document.getElementById("modelo")
   antiguedad = document.getElementById("antiguedad")
@@ -134,7 +134,7 @@ function click(event) {
 
 function escribir_datos_DOM() {
   //refactorizar para usar desestructuración:
-  nombre_usuario.textContent = usuario.nombre
+  username.textContent = usuario.nombre
   marca.textContent = usuario.coches[indice_coche_seleccionado].marca
   modelo.textContent = usuario.coches[indice_coche_seleccionado].modelo
   antiguedad.textContent = usuario.coches[indice_coche_seleccionado].antiguedad

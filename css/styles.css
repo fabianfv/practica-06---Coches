@@ -1,3 +1,7 @@
+html {
+  font-size: 16px;
+}
+
 * {
   font-family: "Roboto", sans-serif;
   color: #ffffff;
@@ -11,7 +15,7 @@ body {
   align-items: center;
 }
 
-div.main-container {
+.main-container {
   background-image: url("../img/bg-image.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -22,16 +26,11 @@ div.main-container {
   display: flex;
 }
 
-/**************************************
-* Aside (foto, nombre y frase usuario)
-***************************************/
-
-.aside__usuario {
+.user-data {
   margin: auto 0;
-  flex-basis: 15%;
-}
+  flex-basis: 20%;
+  text-align: center;
 
-.aside__usuario>.figure__usuario {
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 0px 20px 20px 0px;
 
@@ -39,33 +38,24 @@ div.main-container {
   flex-direction: column;
   align-items: center;
 
-  padding: 2vh 0;
+  padding: 2rem 1rem;
 }
 
-.aside__usuario>.figure__usuario>.img__usuario {
-  width: 50%;
+.user-data__image {
+  width: 5rem;
 }
 
-.aside__usuario>.figure__usuario>figcaption {
-  text-align: center;
-  width: 80%;
+.user-data__name {
+  font-size: 1rem;
+  padding: 0.5rem 0;
 }
 
-.aside__usuario>.figure__usuario>figcaption>.p__nombre_usuario {
-  font-size: calc(0.6rem + 0.6vw);
-  padding-top: 1vh;
-  padding-bottom: 1vh;
+.user-data__message {
+  font-size: 0.8rem;
 }
 
-.aside__usuario .p__frase_usuario {
-  font-size: calc(0.6rem + 0.2vw);
-}
 
-/****************************************
-  main (foto y datos coche seleccionado)
-*****************************************/
-
-.div__content {
+.car {
   flex-basis: 70%;
   margin: 0 auto;
 
@@ -74,16 +64,13 @@ div.main-container {
   justify-content: center;
 }
 
-.img__coche_seleccionado {
+.selected-car {
   border-radius: 10px 10px 0 0;
   opacity: 50%;
 }
 
-/******************************
-  Datos del coche seleccionado
-*******************************/
 
-.section__datos_coche {
+.car-info {
   background: rgba(0, 0, 0, 0.5);
   border-radius: 0px 0px 10px 10px;
 
@@ -92,62 +79,69 @@ div.main-container {
 
   text-align: center;
 
-  font-size: calc(0.6rem + 1.3vw);
-  font-weight: bold;
-
   padding: 1% 2%;
 }
 
-.section__marca {
+.car-data {
   display: flex;
   flex-direction: column;
 }
 
-.etiqueta {
+.car-data__tag {
+  font-size: calc(0.6rem + 1.3vw);
+  font-weight: bold;
+}
+
+.car-data__value {
   font-weight: 500;
   font-size: calc(0.6rem + 0.5vw);
 }
 
-/********
-* Footer
-*********/
 
-.footer__selector_coches {
+.car-selector {
   display: flex;
+  justify-content: space-between;
   margin-top: 3%;
 }
 
-.footer__selector_coches .img__miniatura_coche {
-  border-radius: 5px;
-  margin: 0 1%;
+.car-selector__thumbnail {
+  border-radius: 5px 5px 0 0;
+  margin: 0;
+  max-width: 30%;
 }
+
 
 @media (max-width: 768px) {
 
-  div.main-container {
+  .main-container {
     flex-direction: column;
     justify-content: center;
   }
 
-  .aside__usuario {
+  .user-data {
+    border-radius: 0;
     margin: 0;
   }
 
-  .aside__usuario>.figure__usuario {
-    border-radius: 0;
-  }
-
-  .aside__usuario>.figure__usuario>.img__usuario {
+  .user-data__image {
     width: 15%;
   }
 
-  .div__content {
+  .car {
     flex-basis: 0;
   }
 
-  .img__coche_seleccionado,
-  .section__datos_coche {
+  .selected-car__image,
+  .car-info {
     border-radius: 0;
+  }
+
+  .car-selector__thumbnail:first-child {
+    border-radius: 0 5px 0 0;
+  }
+
+  .car-selector__thumbnail:last-child {
+    border-radius: 5px 0 0 0;
   }
 
 }
