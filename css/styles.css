@@ -42,16 +42,16 @@ body {
 }
 
 .user-data__image {
-  width: 5rem;
+  width: 6rem;
 }
 
 .user-data__name {
-  font-size: 1rem;
+  font-size: 1.3rem;
   padding: 0.5rem 0;
 }
 
 .user-data__message {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 
@@ -88,13 +88,13 @@ body {
 }
 
 .car-data__tag {
-  font-size: calc(0.6rem + 1.3vw);
+  font-size: 0.9rem;
   font-weight: bold;
 }
 
 .car-data__value {
   font-weight: 500;
-  font-size: calc(0.6rem + 0.5vw);
+  font-size: 1.4rem;
 }
 
 
@@ -143,6 +143,10 @@ body {
 
   .car-selector__thumbnail:last-child {
     border-radius: 5px 0 0 0;
+  }
+
+  html {
+    font-size: 12px;
   }
 
 }

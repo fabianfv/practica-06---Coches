@@ -1,12 +1,5 @@
 const CANCEL = null
-
-let username = null
-let make = "-"
-let model = "-"
-let age = "-"
-let color = "-"
-let doors = "-"
-let selectedCarImage = null
+let dataWasEntered = false
 
 window.onload = init
 
@@ -141,10 +134,8 @@ function click() {
   selectedCarImage.src = `img/car0${lastChar}.jpg`
 
   selectedCarIndex = Number(lastChar) - 1
-  console.log("selected car index: ", selectedCarIndex)
 
-
-  writeDataToDOM()
+  if(dataWasEntered) writeDataToDOM()
 }
 
 function writeDataToDOM() {
@@ -158,10 +149,10 @@ function writeDataToDOM() {
 }
 
 function test() {
-  if (!getDataFromUser()) {
+  dataWasEntered = getDataFromUser()
+  if (!dataWasEntered) {
     console.log("The user clicked the Cancel button or she didn't provide the requested data.")
   } else {
-
     console.log("User name: ", user.name)
     console.log("Last car data\n", user.cars[0].toString())
     console.log("Penultimate car data\n", user.cars[1].toString())
@@ -179,7 +170,11 @@ function test() {
 }
 
 /*
+Test input data:
+
 Lamborghini   ,  Aventador   , 15  ,   blue  , 4  
+
 Porsche  ,   Cayman GT4    , 20   , white    , 4
+
 Maseratti   , MC20  , 25  ,  red  , 4     
 */
