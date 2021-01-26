@@ -11,6 +11,7 @@ This is a simple project that asks you for your name and your last three cars, w
 This project shows some fundamentals, and the use of basic technologies and tools for web development:
 * BEM methodology
 * CSS Flexbox
+* CSS Selectors
 * Vanilla Javascript:
   * Object Oriented Programming: constructor function, prototype chain, literal objects, instantiation
   * Regular expressions
@@ -27,6 +28,7 @@ This project shows some fundamentals, and the use of basic technologies and tool
 	
 ## Technologies
 Project created using:
+* Figma
 * HTML5
 * CSS3 (flexbox)
 * Vanilla Javascript
